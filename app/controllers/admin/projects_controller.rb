@@ -4,7 +4,12 @@ class Admin::ProjectsController < ApplicationController
   # GET /projects
   def index
     #logger.debug "ProjectsController#index #{current_user.inspect}"
-    @projects = current_user.projects.all
+    
+    if ( current_user.is_admin )
+      @projects = Project.all
+    else
+      @projects = current_user.projects.all
+    end
 
     render json: @projects
   end
@@ -42,7 +47,11 @@ class Admin::ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = current_user.projects.find(params[:id])
+      if current_user.is_admin
+        @project = Project.find(params[:id])
+      else
+        @project = current_user.projects.find(params[:id])
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
