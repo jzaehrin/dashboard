@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.date :deadline
       t.string :tags
       t.integer :nbr_people
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

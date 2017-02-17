@@ -4,14 +4,16 @@ one:
   title: MyString
   short_description: MyString
   status: 1
-  deadline: 2017-02-10
+  deadline: 2017-02-13
   tags: MyString
   nbr_people: 1
+  user: one
 
 two:
   title: MyString
   short_description: MyString
   status: 1
-  deadline: 2017-02-10
+  deadline: 2017-02-13
   tags: MyString
   nbr_people: 1
+  user: two
