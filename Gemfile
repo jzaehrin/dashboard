@@ -20,6 +20,8 @@ gem 'puma', '~> 3.0'
 gem 'bcrypt', '~> 3.1.11'
 gem 'jwt'
 
+gem 'rack-cors'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
