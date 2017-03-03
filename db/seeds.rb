@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: 'jzaehrin', email: 'jonathan.zaehringer@gmail.com', password: 'totem', password_confirmation: 'totem', is_admin: true);
+User.create(username: 'mgenoud', email: 'malorie.genoud@gmail.com', password: 'totem', password_confirmation: 'totem', is_admin: true);
