@@ -15,6 +15,13 @@ class ProjectsController < ApplicationController
     render json: @project
   end
 
+  # GET /projects/search
+  def search
+    @projects = Project.where("title LIKE ? OR short_description LIKE ?", '%' + params[:string] + '%', '%' + params[:string] + '%')
+
+    render json: @projects
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

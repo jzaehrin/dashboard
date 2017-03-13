@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post 'authenticate', to: 'authentication#authenticate'
 
+  get '/projects/search', to: 'projects#search'
   resources :projects, only: [:show, :index]
 
   namespace :admin do 
