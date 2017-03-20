@@ -11,12 +11,12 @@ class Admin::ProjectsController < ApplicationController
       @projects = current_user.projects.all
     end
 
-    render json: @projects
+    render json: @projects, include: [{user: {except: [:password_digest, :created_at, :updated_at]}}]
   end
 
   # GET /projects/1
   def show
-    render json: @project
+    render json: @project, include: [{user: {except: [:password_digest, :created_at, :updated_at]}}]
   end
 
   # POST /projects

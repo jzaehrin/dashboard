@@ -7,12 +7,12 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    render json: @projects, include: [{ user: {except: [:created_at, :updated_at]} }]
+    render json: @projects, include: [{ user: {except: [:password_digest, :created_at, :updated_at]} }]
   end
 
   # GET /projects/1
   def show
-    render json: @project, include: [{ user: {except: [:created_at, :updated_at]} }]
+    render json: @project, include: [{ user: {except: [:password_digest, :created_at, :updated_at]} }]
   end
 
   # GET /projects/search

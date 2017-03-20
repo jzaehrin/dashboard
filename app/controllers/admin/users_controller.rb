@@ -5,12 +5,14 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    logger.debug @users.inspect
+
+    render json: @users, except: [:password_digest, :created_at, :updated_at]
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @user, except: [:password_digest, :created_at, :updated_at]
   end
 
   # POST /users
