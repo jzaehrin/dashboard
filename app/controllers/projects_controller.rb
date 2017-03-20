@@ -7,12 +7,12 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    render json: @projects
+    render json: @projects, include: [{ user: {except: [:created_at, :updated_at]} }]
   end
 
   # GET /projects/1
   def show
-    render json: @project
+    render json: @project, include: [{ user: {except: [:created_at, :updated_at]} }]
   end
 
   # GET /projects/search
@@ -27,4 +27,5 @@ class ProjectsController < ApplicationController
     def set_project
       @project = Project.find(params[:id])
     end
+
 end

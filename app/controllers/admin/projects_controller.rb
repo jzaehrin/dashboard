@@ -22,6 +22,7 @@ class Admin::ProjectsController < ApplicationController
   # POST /projects
   def create
     @project = Project.new(project_params)
+    @project.user_id = current_user.id
 
     if @project.save
       render json: @project, status: :created, location: @project
@@ -52,10 +53,12 @@ class Admin::ProjectsController < ApplicationController
       else
         @project = current_user.projects.find(params[:id])
       end
+      
+      raise "unfound project" unless @project
     end
 
     # Only allow a trusted parameter "white list" through.
     def project_params
-      params.require(:project).permit(:title, :short_description, :status, :deadline, :tags, :nbr_people, :user_id)
+      params.require(:project).permit(:title, :short_description, :status, :deadline, :tags, :nbr_people)
     end
 end
