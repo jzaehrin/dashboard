@@ -1,24 +1,21 @@
-# README
+# Dashboard backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## PRW3
+Dans le cadre du projet, le serveur Web est déjà présent en production.
 
-Things you may want to cover:
+## Prerequis
 
-* Ruby version
+Version 5 de Ruby on Rails avec au minimum la version 2.4 de Ruby.
 
-* System dependencies
+## Initialisation
 
-* Configuration
+Pour initialié, il est nécessaire de configuré le fichier `config/database.yml` pour lui donné l'accées à la base de donnée. Puis il suffit de lancer les commandes suivantes : 
 
-* Database creation
+```bash
+  $ bundle install
+  $ rails db:create db:migrate db:seed
+```
 
-* Database initialization
+### Developpement
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Pour lancer le serveur dans un environment de dev lancé `rails s`.
